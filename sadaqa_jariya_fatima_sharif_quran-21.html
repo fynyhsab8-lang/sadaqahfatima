@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f5f1e8">
+<title>صدقة جارية | المرحومة فاطمة شريف</title>
+<style>
+  *{box-sizing:border-box}
+  :root{--green:#3f5f48;--green2:#66806c;--cream:#f7f4ee;--ink:#2f4036}
+  body{
+    margin:0; min-height:100vh; font-family:Tahoma,Arial,sans-serif; color:var(--ink);
+    background:radial-gradient(circle at top,#fff 0%,var(--cream) 60%);
+  }
+  .site{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px}
+  .page{
+    width:min(100%,800px); background:rgba(255,255,255,.84);
+    border:1px solid rgba(109,130,115,.18); border-radius:28px;
+    box-shadow:0 18px 55px rgba(61,77,66,.10); padding:38px 24px;
+    text-align:center; position:relative; overflow:hidden;
+  }
+  .page:before,.page:after{
+    content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+    background:rgba(147,164,148,.09);pointer-events:none
+  }
+  .page:before{top:-85px;right:-85px}.page:after{bottom:-90px;left:-90px}
+  .icon{
+    width:58px;height:58px;margin:0 auto 16px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:#eef2ec;color:var(--green2);font-size:27px
+  }
+  h1{margin:0;font-size:clamp(30px,6vw,48px);line-height:1.3;color:var(--green)}
+  .name{margin:12px 0 0;font-size:clamp(20px,4.5vw,30px);line-height:1.55;font-weight:700}
+  .divider{width:90px;height:2px;background:#adc0ae;margin:25px auto}
+  .label{font-size:15px;font-weight:700;color:#74847a;margin-bottom:10px}
+  .dua,.ayah{font-size:clamp(20px,4.2vw,28px);line-height:2}
+  .ayah-card{
+    background:#f6f7f3;border:1px solid rgba(100,121,104,.14);
+    border-radius:20px;padding:20px;margin-top:22px
+  }
+  .ref{font-size:13px;color:#8a978f;margin-top:10px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    border:0;border-radius:999px;padding:14px 25px;margin-top:25px;
+    background:var(--green);color:#fff;font-size:17px;font-weight:700;cursor:pointer;
+    box-shadow:0 10px 24px rgba(63,95,72,.18);transition:.2s
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .home-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
+  .home-actions .btn{margin-top:0}
+  .home-top-actions{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin-top:25px}
+  .home-top-actions .btn{margin-top:0}
+  .home-bottom-actions{display:flex;justify-content:center;margin-top:12px}
+  .home-bottom-actions .btn{margin-top:0}
+  .interactive-btn{position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;touch-action:manipulation;outline:none;user-select:none;-webkit-user-select:none;transition:transform .12s ease,box-shadow .12s ease}
+  .interactive-btn::after{
+    content:"";position:absolute;left:50%;top:50%;width:18px;height:18px;border-radius:50%;
+    background:rgba(255,255,255,.28);transform:translate(-50%,-50%) scale(0);opacity:0;pointer-events:none
+  }
+  .interactive-btn:active{transform:scale(.95);box-shadow:0 8px 18px rgba(63,95,72,.16)}
+  .interactive-btn:active::after{animation:ripple-btn .42s ease-out}
+  .interactive-btn.tap-feedback{animation:btn-pop .28s ease-out}
+  @keyframes btn-pop{0%{transform:scale(1)}45%{transform:scale(.95)}100%{transform:scale(1)}}
+  @keyframes ripple-btn{0%{transform:translate(-50%,-50%) scale(0);opacity:.45}100%{transform:translate(-50%,-50%) scale(13);opacity:0}}
+  .small{font-size:13px;color:#9aa59d;margin-top:20px}
+
+  /* page 2 */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;padding-top:46px}
+  .topbar h2{margin:0;color:var(--green);font-size:clamp(27px,6vw,40px)}
+  .back{
+    position:fixed;top:16px;left:16px;z-index:1000;
+    border:0;background:#eef2ec;color:#4f6657;border-radius:12px;
+    padding:10px 14px;font-weight:700;cursor:pointer;
+    box-shadow:0 8px 20px rgba(63,95,72,.14);
+    -webkit-tap-highlight-color:transparent
+  }
+  .intro{color:#758279;line-height:1.8;margin:8px 0 20px}
+  .card{
+    background:rgba(255,255,255,.82);border:1px solid rgba(100,121,104,.14);
+    border-radius:23px;padding:22px;margin-top:16px;text-align:center
+  }
+  .card h3{margin:0;color:#4b6754;font-size:23px}
+  .dhikr{
+    display:flex;align-items:center;gap:14px;text-align:right;padding:16px 4px;border-bottom:1px solid #edf0ec
+  }
+  .dhikr:last-child{border-bottom:0}
+  .dhikr-content{flex:1;min-width:0}
+  .dhikr-text{font-size:20px;line-height:2;color:#33463a}
+  .repeat{display:inline-block;margin-top:7px;padding:5px 9px;border-radius:9px;background:#f0f3ef;color:#77847c;font-size:12px}
+  .dhikr-counter{
+    position:relative;flex:0 0 86px;width:86px;height:86px;border:0;border-radius:50%;
+    background:var(--green);color:#fff;cursor:pointer;overflow:hidden;
+    -webkit-tap-highlight-color:transparent;touch-action:manipulation;outline:none;user-select:none;-webkit-user-select:none;
+    box-shadow:0 10px 22px rgba(63,95,72,.18);transition:transform .12s ease,box-shadow .12s ease;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:inherit
+  }
+  .dhikr-actions{display:flex;align-items:center;gap:6px;flex:0 0 auto;direction:rtl}
+  button,.btn,.dhikr-reset,.dhikr-counter,.reset-all,.back{outline:none;-webkit-tap-highlight-color:transparent}
+  button:focus,button:focus-visible,.btn:focus,.btn:focus-visible,.dhikr-reset:focus,.dhikr-reset:focus-visible,.dhikr-counter:focus,.dhikr-counter:focus-visible,.reset-all:focus,.reset-all:focus-visible,.back:focus,.back:focus-visible{outline:none;box-shadow:none}
+  .dhikr-reset{border:1px solid #d7dfd8;background:#f7f8f5;color:#66746b;border-radius:10px;padding:7px 9px;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap;min-width:50px;height:42px;transition:transform .16s ease}
+  .dhikr-reset:active{transform:scale(.95)}
+  .dhikr-reset.reset-feedback{animation:reset-wiggle .36s ease-out}
+  .reset-all{display:block;margin:0 auto 14px;border:1px solid #cdd7ce;background:#fff;color:#56675d;border-radius:12px;padding:10px 18px;font-weight:800;cursor:pointer}
+  .reset-all:active{transform:scale(.97)}
+  .reset-all.reset-feedback{animation:reset-all-pop .42s ease-out}
+  .dhikr-counter:active{transform:scale(.93);box-shadow:0 6px 14px rgba(63,95,72,.14)}
+  .dhikr-counter::after{
+    content:"";position:absolute;left:50%;top:50%;width:16px;height:16px;border-radius:50%;
+    background:rgba(255,255,255,.28);transform:translate(-50%,-50%) scale(0);opacity:0;pointer-events:none
+  }
+  .dhikr-counter:active::after{animation:ripple-small .42s ease-out}
+  .dhikr-counter.tap-feedback{animation-duration:.34s;animation-timing-function:ease-out;animation-fill-mode:both}
+  .dhikr-counter[data-dhikr="1"].tap-feedback{animation-name:dhikr-pop-1}
+  .dhikr-counter[data-dhikr="2"].tap-feedback{animation-name:dhikr-pop-2}
+  .dhikr-counter[data-dhikr="3"].tap-feedback{animation-name:dhikr-pop-3}
+  .dhikr-counter[data-dhikr="4"].tap-feedback{animation-name:dhikr-pop-4}
+  .dhikr-counter[data-dhikr="5"].tap-feedback{animation-name:dhikr-pop-5}
+  .dhikr-counter[data-dhikr="6"].tap-feedback{animation-name:dhikr-pop-6}
+  .dhikr-counter[data-dhikr="7"].tap-feedback{animation-name:dhikr-pop-7}
+  .dhikr-counter[data-dhikr="8"].tap-feedback{animation-name:dhikr-pop-8}
+  .dhikr-counter[data-dhikr="9"].tap-feedback{animation-name:dhikr-pop-9}
+  .dhikr-counter[data-dhikr="10"].tap-feedback{animation-name:dhikr-pop-10}
+  .dhikr-counter[data-dhikr="11"].tap-feedback{animation-name:dhikr-pop-11}
+  .dhikr-counter[data-dhikr="12"].tap-feedback{animation-name:dhikr-pop-12}
+  .dhikr-counter[data-dhikr="13"].tap-feedback{animation-name:dhikr-pop-13}
+  .dhikr-counter[data-dhikr="14"].tap-feedback{animation-name:dhikr-pop-14}
+  .dhikr-counter[data-dhikr="15"].tap-feedback{animation-name:dhikr-pop-15}
+  .dhikr-counter[data-dhikr="16"].tap-feedback{animation-name:dhikr-pop-16}
+  .dhikr-counter[data-dhikr="17"].tap-feedback{animation-name:dhikr-pop-17}
+  .dhikr-counter[data-dhikr="18"].tap-feedback{animation-name:dhikr-pop-18}
+  .dhikr-counter[data-dhikr="19"].tap-feedback{animation-name:dhikr-pop-19}
+  .dhikr-counter[data-dhikr="20"].tap-feedback{animation-name:dhikr-pop-20}
+  .counter-label{font-size:14px;font-weight:800;line-height:1.1}
+  .counter-number{font-size:22px;font-weight:900;line-height:1.05;margin-top:4px}
+  @keyframes dhikr-pop-1{0%{transform:scale(1)}45%{transform:scale(.91) rotate(-4deg)}100%{transform:scale(1) rotate(0)}}
+  @keyframes dhikr-pop-2{0%{transform:translateY(0)}45%{transform:translateY(-7px)}100%{transform:translateY(0)}}
+  @keyframes dhikr-pop-3{0%{transform:scale(1)}45%{transform:scale(.94) rotate(4deg)}100%{transform:scale(1) rotate(0)}}
+  @keyframes dhikr-pop-4{0%{transform:scale(1)}40%{transform:scale(1.08)}100%{transform:scale(1)}}
+  @keyframes dhikr-pop-5{0%{transform:translateX(0)}25%{transform:translateX(-5px)}50%{transform:translateX(5px)}100%{transform:translateX(0)}}
+  @keyframes dhikr-pop-6{0%{transform:rotate(0)}50%{transform:rotate(-8deg)}100%{transform:rotate(0)}}
+  @keyframes dhikr-pop-7{0%{transform:scale(1)}35%{transform:scale(.9)}70%{transform:scale(1.05)}100%{transform:scale(1)}}
+  @keyframes dhikr-pop-8{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(5px) rotate(5deg)}100%{transform:translateY(0) rotate(0)}}
+  @keyframes dhikr-pop-9{0%{transform:scale(1)}50%{transform:scale(.95) rotate(-7deg)}100%{transform:scale(1) rotate(0)}}
+  @keyframes dhikr-pop-10{0%{transform:translateX(0)}40%{transform:translateX(6px)}100%{transform:translateX(0)}}
+  @keyframes dhikr-pop-11{0%{transform:scale(1)}45%{transform:scale(1.06) translateY(-3px)}100%{transform:scale(1) translateY(0)}}
+  @keyframes dhikr-pop-12{0%{transform:rotate(0)}30%{transform:rotate(7deg)}60%{transform:rotate(-5deg)}100%{transform:rotate(0)}}
+  @keyframes dhikr-pop-13{0%{transform:scale(1)}45%{transform:scale(.92)}70%{transform:scale(1.04)}100%{transform:scale(1)}}
+  @keyframes dhikr-pop-14{0%{transform:translateY(0)}50%{transform:translateY(6px)}100%{transform:translateY(0)}}
+  @keyframes dhikr-pop-15{0%{transform:scale(1)}50%{transform:scale(.94) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
+  @keyframes dhikr-pop-16{0%{transform:translateX(0)}25%{transform:translateX(4px)}75%{transform:translateX(-4px)}100%{transform:translateX(0)}}
+  @keyframes dhikr-pop-17{0%{transform:scale(1)}35%{transform:scale(1.07)}65%{transform:scale(.97)}100%{transform:scale(1)}}
+  @keyframes dhikr-pop-18{0%{transform:rotate(0)}45%{transform:rotate(-6deg) translateY(-2px)}100%{transform:rotate(0) translateY(0)}}
+  @keyframes dhikr-pop-19{0%{transform:translateY(0)}40%{transform:translateY(-5px) scale(.97)}100%{transform:translateY(0) scale(1)}}
+  @keyframes dhikr-pop-20{0%{transform:scale(1)}30%{transform:scale(.93)}60%{transform:scale(1.06)}100%{transform:scale(1)}}
+  @keyframes reset-wiggle{0%{transform:scale(1)}30%{transform:rotate(-5deg)}60%{transform:rotate(5deg)}100%{transform:scale(1) rotate(0)}}
+  @keyframes reset-all-pop{0%{transform:scale(1)}45%{transform:scale(.96)}75%{transform:scale(1.03)}100%{transform:scale(1)}}
+  @keyframes ripple-small{0%{transform:translate(-50%,-50%) scale(0);opacity:.45}100%{transform:translate(-50%,-50%) scale(7);opacity:0}}
+  .reset{
+    display:block;margin:16px auto 0;border:1px solid #cdd7ce;background:#fff;
+    color:#56675d;border-radius:12px;padding:10px 18px;font-weight:700;cursor:pointer
+  }
+  .hint{font-size:13px;color:#85918a;margin:14px 0 0}
+
+  .select-label{text-align:right;color:#718077;font-size:14px;font-weight:700;margin:18px 0 8px}
+  .qselect{
+    width:100%;padding:14px 15px;border-radius:14px;border:1px solid #d9e0da;
+    background:#fff;color:#33463a;font-family:inherit;font-size:16px;outline:none;
+    direction:rtl
+  }
+  .qselect:focus{border-color:#9aae9e}
+  .playing{margin:18px 0 10px;color:#4b6754;font-weight:700;line-height:1.7}
+  #quranAudio{width:100%;margin:8px 0 2px}
+  .quran-controls{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .quran-controls .btn{margin-top:0;min-width:110px}
+  .quran-controls .secondary{background:#eef2ec;color:#4f6657;box-shadow:none}
+  .quran-controls .repeat-active{background:#66806c;color:#fff}
+  .play-btn{margin-top:16px}
+  .quran-state-icon{display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;position:relative;color:#fff;vertical-align:-3px}
+  .quran-state-icon.pause::before,.quran-state-icon.pause::after{content:"";display:block;width:4px;height:16px;background:#fff;border-radius:1px;position:absolute;top:1px}
+  .quran-state-icon.pause::before{left:2px}.quran-state-icon.pause::after{right:2px}
+  .quran-state-icon.play{width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid #fff;display:inline-block;vertical-align:-4px;margin-inline:2px}
+  .hidden{display:none}
+  @media(max-width:550px){
+    .site{padding:12px}.page{padding:30px 17px;border-radius:22px}
+    .topbar{align-items:flex-start}.card{padding:18px}.dhikr-text{font-size:18px}
+    .tasbeeh{width:130px;height:130px}
+  }
+</style>
+</head>
+<body>
+<div class="site">
+  <main class="page">
+
+    <section id="home">
+      <div class="icon">☾</div>
+      <h1>صدقة جارية</h1>
+      <div class="name">للمرحومة فاطمة شريف<br>بإذن الله</div>
+
+      <div class="divider"></div>
+
+      <div class="label">دعاء</div>
+      <div class="dua">
+        اللهم اغفر لها وارحمها كما ربتني صغيرة،
+        وجازها خير جزاء وثواب.
+      </div>
+
+      <div class="ayah-card">
+        <div class="label">قال الله تعالى</div>
+        <div class="ayah">
+          ﴿وَبَشِّرِ الصَّابِرِينَ ۝ الَّذِينَ إِذَا أَصَابَتْهُم مُّصِيبَةٌ
+          قَالُوا إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ﴾
+        </div>
+        <div class="ref">سورة البقرة: 155–156</div>
+      </div>
+
+      <div class="home-top-actions">
+        <button class="btn interactive-btn" onclick="buttonFeedback(this); showQuran()">استماع للقرآن 📖</button>
+        <button class="btn interactive-btn" onclick="buttonFeedback(this); showAzkar()">التسبيح والأذكار ←</button>
+      </div>
+      <div class="home-bottom-actions">
+        <button class="btn interactive-btn" onclick="buttonFeedback(this); showDuas()">الأدعية 🤲</button>
+      </div>
+      <div class="small">رحمها الله رحمةً واسعة وجعل هذا العمل صدقةً جاريةً لها</div>
+    </section>
+
+    <section id="azkar" class="hidden">
+      <div class="topbar">
+        <h2>التسابيح والأذكار</h2>
+        <button class="back" onclick="showHome()">العودة</button>
+      </div>
+      <div class="intro">اختر أي ذكر واضغط على زر «تسبيح» بجانبه ليبدأ عداده الخاص.</div>
+
+      <button class="reset-all" onclick="resetAllDhikr()">تصفير كل التسابيح</button>
+
+      <div class="card">
+        <h3>تسابيح وأذكار</h3>
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</div>
+            <span class="repeat">100 مرة</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="1" onclick="resetDhikr(1)" aria-label="تصفير تسبيح الذكر 1">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="1" onclick="tapDhikr(this, 1)" aria-label="تسبيح الذكر 1">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">سُبْحَانَ اللَّهِ الْعَظِيمِ</div>
+            <span class="repeat">100 مرة</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="2" onclick="resetDhikr(2)" aria-label="تصفير تسبيح الذكر 2">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="2" onclick="tapDhikr(this, 2)" aria-label="تسبيح الذكر 2">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ</div>
+            <span class="repeat">كرّر ما تيسّر</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="3" onclick="resetDhikr(3)" aria-label="تصفير تسبيح الذكر 3">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="3" onclick="tapDhikr(this, 3)" aria-label="تسبيح الذكر 3">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ</div>
+            <span class="repeat">كرّر ما تيسّر</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="4" onclick="resetDhikr(4)" aria-label="تصفير تسبيح الذكر 4">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="4" onclick="tapDhikr(this, 4)" aria-label="تسبيح الذكر 4">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</div>
+            <span class="repeat">كرّر ما تيسّر</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="5" onclick="resetDhikr(5)" aria-label="تصفير تسبيح الذكر 5">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="5" onclick="tapDhikr(this, 5)" aria-label="تسبيح الذكر 5">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">لَا إِلَهَ إِلَّا اللَّهُ</div>
+            <span class="repeat">كرّر ما تيسّر</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="6" onclick="resetDhikr(6)" aria-label="تصفير تسبيح الذكر 6">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="6" onclick="tapDhikr(this, 6)" aria-label="تسبيح الذكر 6">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">اللَّهُ أَكْبَرُ</div>
+            <span class="repeat">كرّر ما تيسّر</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="7" onclick="resetDhikr(7)" aria-label="تصفير تسبيح الذكر 7">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="7" onclick="tapDhikr(this, 7)" aria-label="تسبيح الذكر 7">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">الْحَمْدُ لِلَّهِ</div>
+            <span class="repeat">كرّر ما تيسّر</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="8" onclick="resetDhikr(8)" aria-label="تصفير تسبيح الذكر 8">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="8" onclick="tapDhikr(this, 8)" aria-label="تسبيح الذكر 8">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">أَسْتَغْفِرُ اللَّهَ</div>
+            <span class="repeat">100 مرة</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="9" onclick="resetDhikr(9)" aria-label="تصفير تسبيح الذكر 9">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="9" onclick="tapDhikr(this, 9)" aria-label="تسبيح الذكر 9">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</div>
+            <span class="repeat">100 مرة</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="10" onclick="resetDhikr(10)" aria-label="تصفير تسبيح الذكر 10">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="10" onclick="tapDhikr(this, 10)" aria-label="تسبيح الذكر 10">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</div>
+            <span class="repeat">100 مرة</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="11" onclick="resetDhikr(11)" aria-label="تصفير تسبيح الذكر 11">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="11" onclick="tapDhikr(this, 11)" aria-label="تسبيح الذكر 11">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ، عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</div>
+            <span class="repeat">7 مرات</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="12" onclick="resetDhikr(12)" aria-label="تصفير تسبيح الذكر 12">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="12" onclick="tapDhikr(this, 12)" aria-label="تسبيح الذكر 12">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ نَبِيًّا</div>
+            <span class="repeat">3 مرات</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="13" onclick="resetDhikr(13)" aria-label="تصفير تسبيح الذكر 13">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="13" onclick="tapDhikr(this, 13)" aria-label="تسبيح الذكر 13">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ</div>
+            <span class="repeat">10 مرات</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="14" onclick="resetDhikr(14)" aria-label="تصفير تسبيح الذكر 14">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="14" onclick="tapDhikr(this, 14)" aria-label="تسبيح الذكر 14">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ</div>
+            <span class="repeat">كرّر ما تيسّر</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="15" onclick="resetDhikr(15)" aria-label="تصفير تسبيح الذكر 15">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="15" onclick="tapDhikr(this, 15)" aria-label="تسبيح الذكر 15">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">يَا رَبِّ لَكَ الْحَمْدُ</div>
+            <span class="repeat">كرّر ما تيسّر</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="16" onclick="resetDhikr(16)" aria-label="تصفير تسبيح الذكر 16">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="16" onclick="tapDhikr(this, 16)" aria-label="تسبيح الذكر 16">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">لَا إِلَهَ إِلَّا اللَّهُ، وَحْدَهُ لَا شَرِيكَ لَهُ</div>
+            <span class="repeat">كرّر ما تيسّر</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="17" onclick="resetDhikr(17)" aria-label="تصفير تسبيح الذكر 17">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="17" onclick="tapDhikr(this, 17)" aria-label="تسبيح الذكر 17">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">اللَّهُ أَكْبَرُ كَبِيرًا، وَالْحَمْدُ لِلَّهِ كَثِيرًا، وَسُبْحَانَ اللَّهِ بُكْرَةً وَأَصِيلًا</div>
+            <span class="repeat">كرّر ما تيسّر</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="18" onclick="resetDhikr(18)" aria-label="تصفير تسبيح الذكر 18">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="18" onclick="tapDhikr(this, 18)" aria-label="تسبيح الذكر 18">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">سُبْحَانَ ذِي الْجَبَرُوتِ وَالْمَلَكُوتِ</div>
+            <span class="repeat">كرّر ما تيسّر</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="19" onclick="resetDhikr(19)" aria-label="تصفير تسبيح الذكر 19">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="19" onclick="tapDhikr(this, 19)" aria-label="تسبيح الذكر 19">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dhikr">
+          <div class="dhikr-content">
+            <div class="dhikr-text">سُبُّوحٌ قُدُّوسٌ رَبُّ الْمَلَائِكَةِ وَالرُّوحِ</div>
+            <span class="repeat">كرّر ما تيسّر</span>
+          </div>
+          <div class="dhikr-actions">
+            <button class="dhikr-reset" data-reset="20" onclick="resetDhikr(20)" aria-label="تصفير تسبيح الذكر 20">تصفير</button>
+            <button class="dhikr-counter" data-dhikr="20" onclick="tapDhikr(this, 20)" aria-label="تسبيح الذكر 20">
+              <span class="counter-label">تسبيح</span>
+              <span class="counter-number">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="duas" class="hidden">
+      <div class="topbar">
+        <h2>الأدعية</h2>
+        <button class="back" onclick="showHome()">العودة</button>
+      </div>
+      <div class="intro">أدعية من القرآن الكريم والسنة النبوية، مرتبة في قسمين لتسهيل القراءة.</div>
+
+      <div class="card">
+        <h3>أدعية من القرآن</h3>
+
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</div><span class="repeat">سورة البقرة: 201</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا</div><span class="repeat">سورة البقرة: 286</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</div><span class="repeat">سورة الفرقان: 74</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">رَبِّ زِدْنِي عِلْمًا</div><span class="repeat">سورة طه: 114</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">رَبِّ اشْرَحْ لِي صَدْرِي ۝ وَيَسِّرْ لِي أَمْرِي</div><span class="repeat">سورة طه: 25–26</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ</div><span class="repeat">سورة الأعراف: 23</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَلِمَن دَخَلَ بَيْتِيَ مُؤْمِنًا وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ</div><span class="repeat">سورة نوح: 28</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">رَبِّ أَنزِلْنِي مُنزَلًا مُّبَارَكًا وَأَنتَ خَيْرُ الْمُنزِلِينَ</div><span class="repeat">سورة المؤمنون: 29</span></div></div>
+      </div>
+
+      <div class="card">
+        <h3>أدعية للميت — من السنة النبوية</h3>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">اللهم اغفر له وارحمه وعافه واعفُ عنه، وأكرم نزله ووسّع مدخله، واغسله بالماء والثلج والبرد، ونقّه من الخطايا كما نقيت الثوب الأبيض من الدنس، وأبدله دارًا خيرًا من داره، وأهلًا خيرًا من أهله، وزوجًا خيرًا من زوجه، وأدخله الجنة وأعذه من عذاب القبر ومن عذاب النار</div><span class="repeat">صحيح مسلم: 963</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">اللهم اغفر لحينا وميتنا، وشاهدنا وغائبنا، وصغيرنا وكبيرنا، وذكرنا وأنثانا</div><span class="repeat">من دعاء الجنازة — من السنة</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">اللهم إن فلان بن فلان في ذمتك وحبل جوارك، فقِهِ من فتنة القبر وعذاب النار، وأنت أهل الوفاء والحق، اللهم اغفر له وارحمه إنك أنت الغفور الرحيم</div><span class="repeat">من دعاء النبي ﷺ للميت</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">اللهم لا تحرمنا أجره، ولا تفتنا بعده، واغفر لنا وله</div><span class="repeat">دعاء مأثور في الجنازة</span></div></div>
+      </div>
+
+      <div class="card">
+        <h3>أدعية للوالدين</h3>
+        <div class="intro" style="margin:8px 0 14px">جاء في السنة أن من العمل الذي ينتفع به الميت: دعاء الولد الصالح له، رواه مسلم (1631). أما صيغ الدعاء التالية فمن القرآن الكريم أو من الدعاء المشروع للوالدين.</div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا</div><span class="repeat">سورة الإسراء: 24</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَلِمَن دَخَلَ بَيْتِيَ مُؤْمِنًا وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ</div><span class="repeat">سورة نوح: 28</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ</div><span class="repeat">سورة إبراهيم: 41</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">اللهم اغفر لوالديَّ وارحمهما</div><span class="repeat">دعاء مشروع للوالدين</span></div></div>
+      </div>
+
+      <div class="card">
+        <h3>أدعية عامة من السنة</h3>
+
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">اللهم إنك عفو تحب العفو فاعفُ عني</div><span class="repeat">من دعاء النبي ﷺ</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">اللهم إني أسألك الهدى والتقى والعفاف والغنى</div><span class="repeat">من دعاء النبي ﷺ</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">اللهم إني أعوذ بك من الهم والحزن، وأعوذ بك من العجز والكسل، وأعوذ بك من الجبن والبخل، وأعوذ بك من غلبة الدين وقهر الرجال</div><span class="repeat">من دعاء النبي ﷺ</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">اللهم إني أسألك العفو والعافية في الدنيا والآخرة</div><span class="repeat">من دعاء النبي ﷺ</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">اللهم رب الناس، أذهب البأس، واشفِ أنت الشافي، لا شفاء إلا شفاؤك، شفاءً لا يغادر سقماً</div><span class="repeat">من دعاء النبي ﷺ</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">اللهم أعني على ذكرك وشكرك وحسن عبادتك</div><span class="repeat">من دعاء النبي ﷺ</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">رب اغفر لي وارحمني واهدني وعافني وارزقني</div><span class="repeat">من دعاء النبي ﷺ</span></div></div>
+        <div class="dhikr"><div class="dhikr-content"><div class="dhikr-text">اللهم إني أسألك الجنة وأعوذ بك من النار</div><span class="repeat">من دعاء النبي ﷺ</span></div></div>
+      </div>
+    </section>
+
+    <section id="quran" class="hidden">
+      <div class="topbar">
+        <h2>استماع للقرآن</h2>
+        <button class="back" onclick="showHome()">العودة</button>
+      </div>
+      <div class="intro">اختر القارئ والسورة، ثم اضغط تشغيل للاستماع.</div>
+
+      <div class="card quran-player">
+        <h3>القرآن الكريم</h3>
+
+        <div class="select-label">القارئ</div>
+        <select id="reciterSelect" class="qselect">
+          <option value="yasser">ياسر الدوسري</option>
+          <option value="minsh">محمد صديق المنشاوي</option>
+          <option value="basit">عبدالباسط عبدالصمد</option>
+        </select>
+
+        <div class="select-label">السورة</div>
+        <select id="surahSelect" class="qselect">
+          <option value="001">1. سورة الفاتحة</option>
+          <option value="002">2. سورة البقرة</option>
+          <option value="003">3. سورة آل عمران</option>
+          <option value="004">4. سورة النساء</option>
+          <option value="005">5. سورة المائدة</option>
+          <option value="006">6. سورة الأنعام</option>
+          <option value="007">7. سورة الأعراف</option>
+          <option value="008">8. سورة الأنفال</option>
+          <option value="009">9. سورة التوبة</option>
+          <option value="010">10. سورة يونس</option>
+          <option value="011">11. سورة هود</option>
+          <option value="012">12. سورة يوسف</option>
+          <option value="013">13. سورة الرعد</option>
+          <option value="014">14. سورة إبراهيم</option>
+          <option value="015">15. سورة الحجر</option>
+          <option value="016">16. سورة النحل</option>
+          <option value="017">17. سورة الإسراء</option>
+          <option value="018">18. سورة الكهف</option>
+          <option value="019">19. سورة مريم</option>
+          <option value="020">20. سورة طه</option>
+          <option value="021">21. سورة الأنبياء</option>
+          <option value="022">22. سورة الحج</option>
+          <option value="023">23. سورة المؤمنون</option>
+          <option value="024">24. سورة النور</option>
+          <option value="025">25. سورة الفرقان</option>
+          <option value="026">26. سورة الشعراء</option>
+          <option value="027">27. سورة النمل</option>
+          <option value="028">28. سورة القصص</option>
+          <option value="029">29. سورة العنكبوت</option>
+          <option value="030">30. سورة الروم</option>
+          <option value="031">31. سورة لقمان</option>
+          <option value="032">32. سورة السجدة</option>
+          <option value="033">33. سورة الأحزاب</option>
+          <option value="034">34. سورة سبأ</option>
+          <option value="035">35. سورة فاطر</option>
+          <option value="036">36. سورة يس</option>
+          <option value="037">37. سورة الصافات</option>
+          <option value="038">38. سورة ص</option>
+          <option value="039">39. سورة الزمر</option>
+          <option value="040">40. سورة غافر</option>
+          <option value="041">41. سورة فصلت</option>
+          <option value="042">42. سورة الشورى</option>
+          <option value="043">43. سورة الزخرف</option>
+          <option value="044">44. سورة الدخان</option>
+          <option value="045">45. سورة الجاثية</option>
+          <option value="046">46. سورة الأحقاف</option>
+          <option value="047">47. سورة محمد</option>
+          <option value="048">48. سورة الفتح</option>
+          <option value="049">49. سورة الحجرات</option>
+          <option value="050">50. سورة ق</option>
+          <option value="051">51. سورة الذاريات</option>
+          <option value="052">52. سورة الطور</option>
+          <option value="053">53. سورة النجم</option>
+          <option value="054">54. سورة القمر</option>
+          <option value="055">55. سورة الرحمن</option>
+          <option value="056">56. سورة الواقعة</option>
+          <option value="057">57. سورة الحديد</option>
+          <option value="058">58. سورة المجادلة</option>
+          <option value="059">59. سورة الحشر</option>
+          <option value="060">60. سورة الممتحنة</option>
+          <option value="061">61. سورة الصف</option>
+          <option value="062">62. سورة الجمعة</option>
+          <option value="063">63. سورة المنافقون</option>
+          <option value="064">64. سورة التغابن</option>
+          <option value="065">65. سورة الطلاق</option>
+          <option value="066">66. سورة التحريم</option>
+          <option value="067">67. سورة الملك</option>
+          <option value="068">68. سورة القلم</option>
+          <option value="069">69. سورة الحاقة</option>
+          <option value="070">70. سورة المعارج</option>
+          <option value="071">71. سورة نوح</option>
+          <option value="072">72. سورة الجن</option>
+          <option value="073">73. سورة المزمل</option>
+          <option value="074">74. سورة المدثر</option>
+          <option value="075">75. سورة القيامة</option>
+          <option value="076">76. سورة الإنسان</option>
+          <option value="077">77. سورة المرسلات</option>
+          <option value="078">78. سورة النبأ</option>
+          <option value="079">79. سورة النازعات</option>
+          <option value="080">80. سورة عبس</option>
+          <option value="081">81. سورة التكوير</option>
+          <option value="082">82. سورة الانفطار</option>
+          <option value="083">83. سورة المطففين</option>
+          <option value="084">84. سورة الانشقاق</option>
+          <option value="085">85. سورة البروج</option>
+          <option value="086">86. سورة الطارق</option>
+          <option value="087">87. سورة الأعلى</option>
+          <option value="088">88. سورة الغاشية</option>
+          <option value="089">89. سورة الفجر</option>
+          <option value="090">90. سورة البلد</option>
+          <option value="091">91. سورة الشمس</option>
+          <option value="092">92. سورة الليل</option>
+          <option value="093">93. سورة الضحى</option>
+          <option value="094">94. سورة الشرح</option>
+          <option value="095">95. سورة التين</option>
+          <option value="096">96. سورة العلق</option>
+          <option value="097">97. سورة القدر</option>
+          <option value="098">98. سورة البينة</option>
+          <option value="099">99. سورة الزلزلة</option>
+          <option value="100">100. سورة العاديات</option>
+          <option value="101">101. سورة القارعة</option>
+          <option value="102">102. سورة التكاثر</option>
+          <option value="103">103. سورة العصر</option>
+          <option value="104">104. سورة الهمزة</option>
+          <option value="105">105. سورة الفيل</option>
+          <option value="106">106. سورة قريش</option>
+          <option value="107">107. سورة الماعون</option>
+          <option value="108">108. سورة الكوثر</option>
+          <option value="109">109. سورة الكافرون</option>
+          <option value="110">110. سورة النصر</option>
+          <option value="111">111. سورة المسد</option>
+          <option value="112">112. سورة الإخلاص</option>
+          <option value="113">113. سورة الفلق</option>
+          <option value="114">114. سورة الناس</option>
+        </select>
+
+        <div class="playing" id="playing">اختر السورة ثم اضغط تشغيل</div>
+        <audio id="quranAudio" controls preload="none"></audio>
+        <div class="quran-controls">
+          <button id="quranPlayBtn" class="btn play-btn interactive-btn" onclick="buttonFeedback(this); toggleQuranPlay()">▶ تشغيل السورة</button>
+          <button id="quranRestartBtn" class="btn secondary interactive-btn hidden" onclick="buttonFeedback(this); restartQuran()">↻ إعادة</button>
+          <button id="quranRepeatBtn" class="btn secondary interactive-btn hidden" onclick="buttonFeedback(this); toggleQuranRepeat()">🔁 تكرار</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  function dhikrKey(id){ return "fatimaDhikrCount_" + id; }
+  function renderDhikrCounts(){
+    document.querySelectorAll(".dhikr-counter").forEach(btn => {
+      const id = btn.dataset.dhikr;
+      const value = Number(localStorage.getItem(dhikrKey(id)) || 0);
+      btn.querySelector(".counter-number").textContent = value;
+    });
+  }
+  function tapDhikr(btn, id){
+    const next = Number(localStorage.getItem(dhikrKey(id)) || 0) + 1;
+    localStorage.setItem(dhikrKey(id), next);
+    btn.querySelector(".counter-number").textContent = next;
+    btn.classList.remove("tap-feedback");
+    void btn.offsetWidth;
+    btn.classList.add("tap-feedback");
+    setTimeout(() => btn.classList.remove("tap-feedback"), 360);
+  }
+  function resetDhikr(id){
+    localStorage.removeItem(dhikrKey(id));
+    const btn = document.querySelector(`.dhikr-counter[data-dhikr="${id}"]`);
+    if(btn) btn.querySelector(".counter-number").textContent = "0";
+    const resetBtn = document.querySelector(`.dhikr-reset[data-reset="${id}"]`);
+    if(resetBtn){
+      resetBtn.classList.remove("reset-feedback");
+      void resetBtn.offsetWidth;
+      resetBtn.classList.add("reset-feedback");
+      setTimeout(() => resetBtn.classList.remove("reset-feedback"), 380);
+    }
+  }
+  function resetAllDhikr(){
+    document.querySelectorAll(".dhikr-counter").forEach(btn => {
+      const id = btn.dataset.dhikr;
+      localStorage.removeItem(dhikrKey(id));
+      btn.querySelector(".counter-number").textContent = "0";
+    });
+    const allBtn = document.querySelector(".reset-all");
+    if(allBtn){
+      allBtn.classList.remove("reset-feedback");
+      void allBtn.offsetWidth;
+      allBtn.classList.add("reset-feedback");
+      setTimeout(() => allBtn.classList.remove("reset-feedback"), 440);
+    }
+  }
+  renderDhikrCounts();
+  function showAzkar(){
+    document.getElementById("home").classList.add("hidden");
+    document.getElementById("azkar").classList.remove("hidden");
+    window.scrollTo({top:0,behavior:"smooth"});
+    history.replaceState(null,"","#azkar");
+  }
+  const quranAudio = document.getElementById("quranAudio");
+  const reciterSelect = document.getElementById("reciterSelect");
+  const surahSelect = document.getElementById("surahSelect");
+  const playing = document.getElementById("playing");
+  const quranPlayBtn = document.getElementById("quranPlayBtn");
+  const quranRestartBtn = document.getElementById("quranRestartBtn");
+  const quranRepeatBtn = document.getElementById("quranRepeatBtn");
+
+  function renderRoute(hash){
+    const target = ["#home","#quran","#azkar","#duas"].includes(hash) ? hash : "#home";
+    const home = document.getElementById("home");
+    const azkar = document.getElementById("azkar");
+    const quran = document.getElementById("quran");
+    const duas = document.getElementById("duas");
+
+    if(target !== "#quran") stopQuranAudio();
+    home.classList.toggle("hidden", target !== "#home");
+    azkar.classList.toggle("hidden", target !== "#azkar");
+    quran.classList.toggle("hidden", target !== "#quran");
+    duas.classList.toggle("hidden", target !== "#duas");
+    window.scrollTo({top:0,behavior:"smooth"});
+    updateQuranButtons();
+  }
+
+  function navigateTo(hash){
+    history.pushState({page:hash.slice(1)}, "", hash);
+    renderRoute(hash);
+  }
+
+  function showQuran(){ navigateTo("#quran"); }
+  function showAzkar(){ navigateTo("#azkar"); }
+  function showDuas(){ navigateTo("#duas"); }
+   
+   function updateQuranButtons(){
+    if(!quranPlayBtn) return;
+    const hasSource = !!quranAudio?.getAttribute("src");
+    const isPlaying = !!quranAudio && !quranAudio.paused && !quranAudio.ended;
+    quranPlayBtn.innerHTML = isPlaying ? '<span class="quran-state-icon pause" aria-hidden="true"></span> إيقاف' : '<span class="quran-state-icon play" aria-hidden="true"></span> تشغيل السورة';
+    quranRestartBtn?.classList.toggle("hidden", !hasSource);
+    quranRepeatBtn?.classList.toggle("hidden", !hasSource);
+    quranRepeatBtn?.classList.toggle("repeat-active", !!quranAudio?.loop);
+    if(quranRepeatBtn) quranRepeatBtn.textContent = quranAudio?.loop ? "⟳ التكرار: تشغيل" : "⟳ تكرار";
+  }
+
+  function stopQuranAudio(){
+    if(quranAudio){
+      quranAudio.pause();
+      quranAudio.currentTime = 0;
+      quranAudio.removeAttribute("src");
+      quranAudio.loop = false;
+      quranAudio.load();
+    }
+    updateQuranButtons();
+  }
+  function showHome(){
+    history.replaceState({page:"home"}, "", "#home");
+    renderRoute("#home");
+  }
+  function buttonFeedback(btn){
+    btn.classList.remove("tap-feedback");
+    void btn.offsetWidth;
+    btn.classList.add("tap-feedback");
+    setTimeout(() => btn.classList.remove("tap-feedback"), 280);
+  }
+  function loadAndPlayQuran(){
+    const reciter = reciterSelect.value;
+    const surah = surahSelect.value;
+    const names = {
+      yasser: "ياسر الدوسري",
+      minsh: "محمد صديق المنشاوي",
+      basit: "عبدالباسط عبدالصمد"
+    };
+    const servers = {
+      yasser: "https://server11.mp3quran.net/yasser/",
+      minsh: "https://server10.mp3quran.net/minsh/",
+      basit: "https://server7.mp3quran.net/basit/"
+    };
+    const url = servers[reciter] + surah + ".mp3";
+    quranAudio.src = url;
+    quranAudio.currentTime = 0;
+    playing.textContent = "جاري تشغيل سورة " + surahSelect.options[surahSelect.selectedIndex].text.replace(/^\d+\.\s*/, "") + " — " + names[reciter];
+    updateQuranButtons();
+    quranAudio.play().then(() => {
+      updateQuranButtons();
+    }).catch(() => {
+      playing.textContent = "اضغط زر التشغيل من مشغل الصوت للاستماع.";
+      updateQuranButtons();
+    });
+  }
+
+  function handleQuranSelectionChange(){
+    // عند تغيير القارئ أو السورة نرجع لحالة «تشغيل السورة» فقط.
+    if(quranAudio){
+      quranAudio.pause();
+      quranAudio.currentTime = 0;
+      quranAudio.removeAttribute("src");
+      quranAudio.loop = false;
+      quranAudio.load();
+    }
+    playing.textContent = "اضغط تشغيل السورة للاستماع للاختيار الجديد.";
+    updateQuranButtons();
+  }
+
+  function toggleQuranPlay(){
+    if(!quranAudio.getAttribute("src")){
+      loadAndPlayQuran();
+      return;
+    }
+    if(quranAudio.paused || quranAudio.ended){
+      playing.textContent = "";
+      quranAudio.play().then(() => updateQuranButtons()).catch(() => {});
+    }else{
+      quranAudio.pause();
+      playing.textContent = "تم إيقاف التلاوة.";
+      updateQuranButtons();
+    }
+  }
+
+  function restartQuran(){
+    if(!quranAudio.getAttribute("src")) return;
+    quranAudio.currentTime = 0;
+    playing.textContent = "";
+    quranAudio.play().then(() => {
+      updateQuranButtons();
+    }).catch(() => {});
+  }
+
+  function toggleQuranRepeat(){
+    if(!quranAudio.getAttribute("src")) return;
+    quranAudio.loop = !quranAudio.loop;
+    updateQuranButtons();
+    playing.textContent = quranAudio.loop ? "التكرار مفعل — ستُعاد السورة تلقائيًا." : "التكرار متوقف.";
+  }
+
+  reciterSelect.addEventListener("change", handleQuranSelectionChange);
+  surahSelect.addEventListener("change", handleQuranSelectionChange);
+
+  quranAudio.addEventListener("play", () => {
+    updateQuranButtons();
+  });
+  quranAudio.addEventListener("pause", updateQuranButtons);
+  quranAudio.addEventListener("ended", () => {
+    if(!quranAudio.loop) playing.textContent = "انتهت السورة.";
+    updateQuranButtons();
+  });
+  updateQuranButtons();
+
+  const initialRoute = ["#home","#quran","#azkar","#duas"].includes(location.hash) ? location.hash : "#home";
+  history.replaceState({page:initialRoute.slice(1)}, "", initialRoute);
+  renderRoute(initialRoute);
+
+  // زر الرجوع في الهاتف/المتصفح يعمل بنفس منطق زر «العودة» داخل الموقع.
+  window.addEventListener("popstate", () => {
+    renderRoute(location.hash || "#home");
+  });
+</script>
+</body>
+</html>
